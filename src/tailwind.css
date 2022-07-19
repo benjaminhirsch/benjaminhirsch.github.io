@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .special-link {
+        @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500 underline decoration-2 underline-offset-4 decoration-sky-500;
+    }
+}
+
+main a { @apply special-link }
