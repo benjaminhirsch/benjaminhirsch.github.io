@@ -1208,6 +1208,8 @@ main ul {
 main ul li {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 main h2 {
