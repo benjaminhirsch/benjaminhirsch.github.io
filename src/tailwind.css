@@ -57,7 +57,7 @@ article table tbody tr:hover {
 }
 
 main ul  {
-    @apply list-disc list-outside mb-5 mt-5 ml-5
+    @apply list-disc list-outside mb-5 mt-5 ml-5 text-white
 }
 
 main ul li {
