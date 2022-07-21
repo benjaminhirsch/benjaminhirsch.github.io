@@ -1,0 +1,52 @@
+baseURL = 'https://www.benjaminhirsch.net/'
+languageCode = 'en-us'
+title = 'Benjamin Hirsch, passionate software developer'
+[params]
+    description = 'Personal website and Blog about mostly technical things.'
+    siteDescription = 'Benjamin Hirsch, passionate software developer'
+    images = []
+[markup]
+defaultMarkdownHandler = 'goldmark'
+    [markup.goldmark.renderer]
+    hardWraps = false
+    unsafe = true
+    xhtml = false
+[params.shareButtons]
+    size = "medium"
+    icon = "solid"
+    networks = ["reddit", "twitter", "linkedin", "xing", "email"]
+[taxonomies]
+    tag = "tags"
+[menu]
+    [[menu.main]]
+        identifier = 'home'
+        name = 'Home'
+        url = '/'
+        weight = 100
+    [[menu.main]]
+        identifier = 'about'
+        name = 'About me'
+        url = '/#aboutme'
+        weight = 110
+    [[menu.main]]
+        identifier = 'skills'
+        name = 'Skills'
+        url = '/#skills'
+        weight = 120
+#    [[menu.main]]
+#        identifier = 'blog'
+#        name = 'Blog'
+#        url = '/blog/'
+#        weight = 130
+    [[menu.main]]
+        identifier = 'contact'
+        name = 'Contact'
+        url = '/#contact'
+        weight = 140
+[related]
+    includeNewer = false
+    threshold = 80
+    toLower = false
+    [[related.indices]]
+        name = 'tags'
+        weight = 100

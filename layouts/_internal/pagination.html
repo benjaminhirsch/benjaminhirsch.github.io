@@ -1,0 +1,26 @@
+{{ if gt .Paginator.TotalPages 1 }}
+<nav class="w-full block mt-20 text-white text-lg text-center">
+    {{ $.Scratch.Set "hasPrevDots" false }}
+    {{ $.Scratch.Set "hasNextDots" false }}
+
+    {{ range .Paginator.Pagers }}
+    {{ if eq . $.Paginator }}
+    <span class='font-bold pl-2 pr-2 inline-block'>
+                    {{- .PageNumber -}}
+                </span>
+    {{ else if or (or (eq . $.Paginator.First) (eq . $.Paginator.Prev)) (or  (eq . $.Paginator.Next) (eq . $.Paginator.Last )) }}
+    <a class=' pl-2 pr-2 inline-block' href='{{ .URL }}'>
+        {{- .PageNumber -}}
+    </a>
+    {{ else }}
+    {{ if and (not ($.Scratch.Get "hasPrevDots")) (lt .PageNumber $.Paginator.PageNumber)  }}
+    {{ $.Scratch.Set "hasPrevDots" true }}
+    <span class=' pl-2 pr-2 inline-blockdots'>&hellip;</span>
+    {{ else if and (not ($.Scratch.Get "hasNextDots")) (gt .PageNumber $.Paginator.PageNumber) }}
+    {{ $.Scratch.Set "hasNextDots" true }}
+    <span class=' pl-2 pr-2 inline-blockdots'>&hellip;</span>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+</nav>
+{{ end }}

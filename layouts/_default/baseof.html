@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <meta name="description" content="{{.Description | default .Site.Params.SiteDescription}}">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="/dist/main.css" media="all">
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
+          rel="icon">
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+</head>
+<body id="home" class="w-full bg-gray-900 overflow-y-scroll">
+    <div class="w-full max-w-screen-xl m-auto">
+        <div class="w-fill ml-5 mr-5 md:ml-10 md:mr-10 lg:ml-40 lg:mr-40">
+
+            <!-- Start Navigation -->
+            <div class="text-white pr-10">
+            <div class="text-white pr-10">
+                <ul class="navigation flex font-bold text-lg pt-10 pb-10 flex-wrap">
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                        {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                        {{ $active = or $active (eq .Name $currentPage.Title) }}
+                        {{ $active = or $active (and (eq .Name "Blog") (eq $currentPage.Section "post")) }}
+                        {{ $active = or $active (and (eq .Name "Tags") (eq $currentPage.Section "tags")) }}
+                        {{ $active = or $active (and (eq (trim (path.Dir .URL) "/") $currentPage.Section) (ne $currentPage.Section "")) }}
+                        {{ $active = eq $.RelPermalink (.URL | relLangURL) }}
+                        {{ $active = or $active (eq $.Section (lower .Name)) }}
+                    <li class="mr-4"><a {{ if $active }}class=" text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500" aria-current="page"{{ end }} href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+                <!--<ul class="navigation flex font-bold text-lg pt-10 pb-10 flex-wrap">
+                    <li class="mr-4"><a class="text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500" href="/index.html">Home</a>
+                    </li>
+                    <li class="mr-4">
+                        <a class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500"
+                           href="/#aboutme">About me</a></li>
+                    <li class="mr-4">
+                        <a class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500"
+                           href="/#skills">Skills</a></li>
+                    <li class="mr-4">
+                        <a class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500"
+                           href="/blog">Blog</a></li>
+                    <li>
+                        <a class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500"
+                           href="/#contact">Contact</a></li>
+                </ul>-->
+            </div>
+            <!-- End Navigation -->
+
+            <!-- Start Main -->
+            <main>{{ block "main" . }}{{ end }}</main>
+            <!-- End Main -->
+        </div>
+    </div>
+
+    <div class="w-full text-center mt-40 p-10 text-white text-sm">
+        <a class="pr-10 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500"
+           href="/imprint">Imprint</a>
+        <a class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500"
+           href="/privacy-policy">Privacy Policy</a>
+    </div>
+
+</body>
+</html>

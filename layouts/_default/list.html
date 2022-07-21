@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="w-full mt-10 sm:mt-20">
+    <h4 class="text-white text-3xl mb-20 font-bold" id="aboutme"><span
+            class="text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 text-4xl">::</span> {{ .Title }}
+    </h4>
+
+    {{ .Content }}
+
+    <div class="grid place-items-center w-full">
+        <div class="w-2/3 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 mr-10 ml-10 mt-40 mb-40"></div>
+    </div>
+
+</div>
+
+<div class="grid grid-flow-col grid-flow-dense gap-10 auto-cols-auto md:grid-cols-2 place-items-stretch">
+    {{ range (.Paginator 10).Pages.ByPublishDate.Reverse }}
+
+
+    <div class="w-full hover:scale-105 transform-gpu duration-200 transition-transform">
+        <a href="{{.Permalink}}" class="no-underline">
+            <div class="bg-gradient-to-br from-cyan-500 to-blue-500 p-5 pt-0 pb-0" >
+                <div class="h-56">
+                    {{ if isset .Params "images" }}
+                    {{ $image := index (.Params.Images) 0 }}
+                    <div class="relative bg-black bg-opacity-40 -ml-5 -mr-5 p-5 min-h-full max-h-56 overflow-y-hidden border-2 "style="background-image: url({{ $image }}); background-repeat: no-repeat; background-size:cover;  background-position: center">
+                    {{ else }}
+                        <div class="relative bg-black bg-opacity-40 -ml-5 -mr-5 p-5 min-h-full max-h-56 overflow-y-hidden border-2">
+                    {{ end }}
+                        <span class="text-shadow-sm text-xl font-bold text-white">{{.Title}} </span>
+                        <p class="absolute bottom-2 text-gray-200 text-sm text-shadow-sm">{{.Date.Format "2006-01-02"}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="bg-white text-black p-5 w-full h-40 md:h-60 max-h-60 text-sm md:text-lg">
+            {{.Summary}}
+            <p class="pt-5"><a href="{{.Permalink}}" class="text-black hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500 underline decoration-2 underline-offset-4 decoration-sky-500">read more</a></p>
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ template "_internal/pagination.html" . }}
+{{ end }}

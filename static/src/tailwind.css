@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .special-link {
+        @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500 underline decoration-2 underline-offset-4 decoration-sky-500;
+    }
+}
+
+main a:not(.no-underline):not(a.resp-sharing-button__link) { @apply special-link }
+
+
+body p { @apply text-white text-lg }
+div.highlight { @apply mb-10 mt-10 overflow-x-scroll }
+div.highlight > div { @apply p-5 }
+main img { @apply mt-10 mb-10 }
+body::before {
+    background: url("/images/background.png") no-repeat fixed top;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 40%;
+    content: " ";
+    z-index: -1;
+}
+
+article p img {  margin: 20px auto; }
+
+article table {
+    width: 100%;
+    color: white;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid #0ea5e9;
+    border-collapse: collapse;
+}
+
+article table thead {
+    font-weight: bold;
+    @apply bg-gradient-to-br from-cyan-500 to-blue-500 p-5 pt-0 pb-0
+}
+
+article table thead tr > th {
+    padding: 10px;
+}
+
+article table tbody tr > td {
+    border: 1px solid #0ea5e9;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+article table tbody tr:hover {
+    background-color: rgba(20, 27, 41, 1);
+}
+
+main ul  {
+    @apply list-disc list-outside mb-5 mt-5 ml-5
+}
+
+main ul li {
+    @apply my-2
+}
+
+main h2 { @apply text-xl font-bold block my-5 text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 font-bold }
+main h3 { @apply text-lg font-bold block my-5 text-transparent bg-clip-text bg-gradient-to-br from-cyan-200 to-blue-400 font-bold }
+main h4 { @apply font-bold block my-5 text-transparent bg-clip-text bg-gradient-to-br from-cyan-200 to-blue-400 font-bold }

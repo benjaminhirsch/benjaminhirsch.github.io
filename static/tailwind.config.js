@@ -7,7 +7,8 @@ module.exports = {
   content: [
     './src/blog.html',
     './src/blog-detail.html',
-    './src/index.html'
+    './src/index.html',
+    '../layouts/**/*.html'
   ],
   theme: {
     screens: {

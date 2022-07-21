@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="w-full mt-10 sm:mt-20">
+    <h4 class="text-white text-3xl mb-20 font-bold " id="aboutme"><span
+            class="text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 text-4xl">::</span> {{ .Title }}
+    </h4>
+
+    {{ .Content }}
+
+    <div class="grid place-items-center w-full">
+        <div class="w-2/3 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 mr-10 ml-10 mt-40 mb-40"></div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="w-full mt-10 sm:mt-20">
+    <article>
+        <header>
+            <h4 class="text-white text-3xl mb-20 font-bold" id="aboutme"><span
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 text-4xl">::</span> {{ .Title }}
+            </h4>
+            <p class="-mt-14 mb-10 text-gray-300">{{.Date.Format "2006-01-02"}}</p>
+        </header>
+
+        {{ .Content }}
+
+        <div class="mt-20">
+            <p class="mb-4"><strong>Sharing is caring</strong>&nbsp;❤️</p>
+            {{ partial "share-buttons" . }}
+        </div>
+
+        <div class="grid place-items-center w-full">
+            <div class="w-2/3 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 mr-10 ml-10 mt-40 mb-40"></div>
+        </div>
+    </article>
+</div>
+{{ $related := site.RegularPages.RelatedTo ( keyVals "tags" .Params.Tags) }}
+
+
+{{ with $related }}
+<p class="text-white text-3xl mb-5 font-bold" id="aboutme"><span
+        class="text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 text-4xl">::</span> See also
+</p>
+<ul class="list-disc list-inside">
+    {{ range first 5 .ByPublishDate.Reverse }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+</ul>
+{{ end }}
+{{ end }}
