@@ -61,7 +61,7 @@ main ul  {
 }
 
 main ul li {
-    @apply my-2
+    @apply my-2 text-white
 }
 
 main h2 { @apply text-xl font-bold block my-5 text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 font-bold }
