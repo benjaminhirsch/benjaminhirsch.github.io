@@ -2,7 +2,7 @@ baseURL = 'https://www.benjaminhirsch.net/'
 languageCode = 'en-us'
 title = 'Benjamin Hirsch, passionate software developer'
 [params]
-    description = 'Personal website and Blog about mostly technical things.'
+    description = 'Personal website and blog about mostly technical things.'
     siteDescription = 'Benjamin Hirsch, passionate software developer'
     images = ['/images/benjamin.jpg']
 [markup]
