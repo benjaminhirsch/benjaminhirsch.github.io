@@ -1203,6 +1203,8 @@ main ul {
   margin-left: 1.25rem;
   list-style-position: outside;
   list-style-type: disc;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 main ul li {
