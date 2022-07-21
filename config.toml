@@ -1,6 +1,12 @@
 baseURL = 'https://www.benjaminhirsch.net/'
 languageCode = 'en-us'
 title = 'Benjamin Hirsch, passionate software developer'
+enableRobotsTXT = true
+disableKinds = ['sitemap']
+[sitemap]
+    changefreq = 'monthly'
+    filename = 'sitemap.xml'
+    priority = 0.5
 [params]
     description = 'Personal website and blog about mostly technical things.'
     siteDescription = 'Benjamin Hirsch, passionate software developer'
