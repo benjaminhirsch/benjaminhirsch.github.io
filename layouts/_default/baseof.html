@@ -5,9 +5,8 @@
     <title>{{ .Title }}</title>
     <meta name="description" content="{{.Description | default .Site.Params.SiteDescription}}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="stylesheet" href="/dist/main.css" media="all">
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
-          rel="icon">
+    <link rel="stylesheet" type="text/css" href="{{ "/css/main.css" | relURL }}" media="all">
+    <link href="/images/waving-hand.svg" rel="icon">
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
 </head>

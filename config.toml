@@ -1,4 +1,4 @@
-baseURL = 'https://www.benjaminhirsch.net/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'Benjamin Hirsch, passionate software developer'
 enableRobotsTXT = true

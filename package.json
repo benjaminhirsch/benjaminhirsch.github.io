@@ -4,7 +4,6 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "tailwind": "tailwindcss -i ./src/tailwind.css -o src/dist/main.css --watch",
     "serve": "browser-sync start --server 'src' --files 'src' --no-notify --host $LOCAL_IP --port 9000"
   },
   "author": "",

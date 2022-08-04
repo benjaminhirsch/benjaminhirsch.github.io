@@ -1,7 +1,7 @@
 .idea
 node_modules
-src/dist
 .DS_Store
 tmp
 public
 resources
+.hugo_build.lock

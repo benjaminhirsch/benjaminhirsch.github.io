@@ -5,10 +5,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: [
-    './src/blog.html',
-    './src/blog-detail.html',
-    './src/index.html',
-    '../layouts/**/*.html'
+    'layouts/**/*.html'
   ],
   theme: {
     screens: {
