@@ -2,9 +2,7 @@
 title: Imprint
 ---
 **Owner**  
-Benjamin Hirsch  
-P.O. Box 11 13  
-88181 Ravensburg, Germany  
+Benjamin Hirsch
  \
 **Contact**  
 E-Mail: mail@benjaminhirsch.net
